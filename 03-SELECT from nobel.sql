@@ -48,14 +48,13 @@ WHERE subject = 'Physics'
     AND yr = 1984;
 
 -- 9. Show the winners for 1980 excluding the Chemistry and Medicine
-
 SELECT *
 FROM nobel
 WHERE yr = 1980
     AND subject NOT IN ('Chemistry', 'Medicine');
 
--- 10. Show who won a 'Medicine' prize in an early year (before 1910, not including 1910) together with winners of a 'Literature' prize in a later year (after 2004, including 2004)
-
+-- 10. Show who won a 'Medicine' prize in an early year (before 1910, not including 1910)
+-- together with winners of a 'Literature' prize in a later year (after 2004, including 2004)
 SELECT *
 FROM nobel
 WHERE subject = 'Medicine'
@@ -63,26 +62,23 @@ WHERE subject = 'Medicine'
     AND yr >= 2004;
 
 -- 11. Find all details of the prize won by PETER GRÜNBERG
-
 SELECT *
 FROM nobel
 WHERE winner = 'Peter Grünberg';
 
 -- 12.Find all details of the prize won by EUGENE O'NEILL
-
 SELECT *
 FROM nobel
 WHERE winner = 'Eugene O''Neill';
 
--- 13. List the winners, year and subject where the winner starts with Sir. Show the the most recent first, then by name order.
-
+-- 13. List the winners, year and subject where the winner starts with Sir. 
+-- Show the the most recent first, then by name order.
 SELECT winner, yr, subject
 FROM nobel
 WHERE winner LIKE 'Sir%'
 ORDER BY yr DESC, winner;
 
 -- 14. Show the 1984 winners ordered by subject and winner name; but list Chemistry and Physics last.
-
 SELECT winner, subject
 FROM nobel
 WHERE yr=1984
